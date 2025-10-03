@@ -1,0 +1,11 @@
+Here are three best practices to consider when using exceptions:
+1. Use checked exceptions (i.e. try-catch blocks) for recoverable errors in
+the program flow, and unchecked exceptions for errors that disable or halt the
+program entirely. 
+2. Don't ever "swallow" or ignore an exception - it should always be handled
+properly, or passed on to where it can be handled. 
+3. Never catch all instances of Throwable. For example, Errors are a subclass
+of Throwable which can cause significant errors and unpredictable behavior if
+you try to handle them, assuming that they even can be handled at all. Also,
+many Errors (and other subclasses of Throwable) are not recoverable at all, so
+trying to handle them will just cause further crashes.
