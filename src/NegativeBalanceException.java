@@ -1,5 +1,5 @@
 import java.io.File;
-import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.io.IOException;
 
 public class NegativeBalanceException extends Exception {
@@ -10,14 +10,14 @@ public class NegativeBalanceException extends Exception {
 		super("Error: negative balance");
 	}
 	
-	public NegativeBalanceException(int balance) {
+	public NegativeBalanceException(double balance) {
 		super("Amount exceeds balance by " + balance);
 		negativeBalance = balance;
 		
 		File f = new File("logfile.txt");
 		try {
 			f.createNewFile(); 
-			FileWriter writer = new FileWriter(f);
+			PrintWriter writer = new PrintWriter(f);
 			
 			writer.write(this.getMessage());
 			writer.close();
